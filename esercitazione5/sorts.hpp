@@ -218,7 +218,7 @@ template<typename T>
 void quick_sort_hybrid(vector<T>& vec, int sx, int dx){
 
     //inserisco la soglia oltre il quale l'insertion sort è peggio del quick sort
-    const int limite = 5;
+    const int limite = 12;
 
     if (dx-sx+1 < limite){
         insertion_sort_range(vec, sx, dx);

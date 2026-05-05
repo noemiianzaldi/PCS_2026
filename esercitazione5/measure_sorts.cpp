@@ -41,121 +41,100 @@ int main(){
     for (int i=1; i<=100; i++){
 
         // creo una matrice 50xi
-        vector<vector<double>> dati(50, vector<double>(i));
+        vector<vector<double>> dati(100, vector<double>(i));
 
         //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k=0; k < 50; k++){
+        for(size_t k = 0; k < 100; k++){
             rf.fill(dati[k], -500.0, 500.0);
         }
 
         //test bubble sort
-        //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k = 0; k < 50; k++){
-            rf.fill(dati[k], -500.0, 500.0);
-        }
+        vector<vector<double>> dati_bubble = dati;
         //avvio il cronometro
         tc.tic();
-        for (size_t k = 0; k<50; k++){
-            bubble_sort(dati[k]);
+        for (size_t k = 0; k<100; k++){
+            bubble_sort(dati_bubble[k]);
         }
         //fermo il cronometro
-        double t_bubble = tc.toc()/50;
+        double t_bubble = tc.toc()/100;
         //inserisco il tempo registrato nel vettore corrispondente 
         tempi_bubble.push_back(t_bubble);
 
 
         //test insertion sort
-        //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k = 0; k < 50; k++){
-            rf.fill(dati[k], -500.0, 500.0);
-        }
+        vector<vector<double>> dati_insertion = dati;  
         //avvio il cronometro
         tc.tic();
-        for (size_t k = 0; k<50; k++){
-            insertion_sort(dati[k]);
+        for (size_t k = 0; k<100; k++){
+            insertion_sort(dati_insertion[k]);
         }
         //fermo il cronometro
-        double t_insertion = tc.toc()/50;
+        double t_insertion = tc.toc()/100;
         //inserisco il tempo registrato nel vettore corrispondente
         tempi_insertion.push_back(t_insertion);
 
 
         //test selection sort
-        //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k = 0; k < 50; k++){
-            rf.fill(dati[k], -500.0, 500.0);
-        }
+        vector<vector<double>> dati_selection = dati;
         //avvio il cronometro
         tc.tic();
-        for (size_t k = 0; k<50; k++){
-            selection_sort(dati[k]);
+        for (size_t k = 0; k<100; k++){
+            selection_sort(dati_selection[k]);
         }
         //fermo il cronometro
-        double t_selection = tc.toc()/50;
+        double t_selection = tc.toc()/100;
         //inserisco il tempo registrato nel vettore corrispondente
         tempi_selection.push_back(t_selection);
 
 
         //test sort
-        //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k = 0; k < 50; k++){
-            rf.fill(dati[k], -500.0, 500.0);
-        } 
+        vector<vector<double>> dati_sort = dati;
         //avvio il cronometro
         tc.tic();
-        for (size_t k = 0; k<50; k++){
-            sort(dati[k].begin(), dati[k].end());
+        for (size_t k = 0; k<100; k++){
+            sort(dati_sort[k].begin(), dati_sort[k].end());
         }
         //fermo il cronometro
-        double t_sort = tc.toc()/50;
+        double t_sort = tc.toc()/100;
         //inserisco il tempo registrato nel vettore corrispondente
         tempi_sort.push_back(t_sort);
 
         
         //test merge sort
-        //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k = 0; k < 50; k++){
-            rf.fill(dati[k], -500.0, 500.0);
-        }
+        vector<vector<double>> dati_merge = dati;
         //avvio il cronometro
         tc.tic();
-        for (size_t k = 0; k<50; k++){
-            merge_sort(dati[k], 0, dati[k].size()-1);
+        for (size_t k = 0; k<100; k++){
+            merge_sort(dati_merge[k], 0, dati_merge[k].size()-1);
         }
         //fermo il cronometro
-        double t_merge = tc.toc()/50;
+        double t_merge = tc.toc()/100;
         //inserisco il tempo registrato nel vettore corrispondente
         tempi_merge.push_back(t_merge);
 
 
         //test quick sort
-        //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k = 0; k < 50; k++){
-            rf.fill(dati[k], -500.0, 500.0);
-        }
+        vector<vector<double>> dati_quick = dati;
         //avvio il cronometro
         tc.tic();
-        for (size_t k = 0; k<50; k++){
-            quick_sort(dati[k], 0, dati[k].size()-1);
+        for (size_t k = 0; k<100; k++){
+            quick_sort(dati_quick[k], 0, dati_quick[k].size()-1);
         }
         //fermo il cronometro
-        double t_quick = tc.toc()/50;
+        double t_quick = tc.toc()/100;
         //inserisco il tempo registrato nel vettore corrispondente
         tempi_quick.push_back(t_quick);
 
 
         //test quick sort hybrid
-        //riempio la matrice in modo casuale, scorrendola riga per riga
-        for(size_t k = 0; k < 50; k++){
-            rf.fill(dati[k], -500.0, 500.0);
-        }
+        vector<vector<double>> dati_quickhybrid = dati;
         //avvio il cronometro
         tc.tic();
-        for (size_t k = 0; k<50; k++){
-            quick_sort_hybrid(dati[k], 0, dati[k].size()-1);
+        for (size_t k = 0; k<100; k++){
+            quick_sort_hybrid(dati_quickhybrid[k], 0, dati_quickhybrid[k].size()-1);
         }
         //fermo il cronometro
-        double t_quickhybrid = tc.toc()/50;
+        double t_quickhybrid = tc.toc()/100;
         //inserisco il tempo registrato nel vettore corrispondente
         tempi_quick_hybrid.push_back(t_quickhybrid);
 
